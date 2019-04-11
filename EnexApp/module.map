@@ -1,0 +1,5 @@
+module WA3DLib {
+    header "WA3DLib.framework/Headers/ARViewController.h"
+    header "WA3DLib.framework/Headers/WAPublishServerManager.h"
+    export *
+}

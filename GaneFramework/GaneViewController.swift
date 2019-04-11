@@ -81,9 +81,9 @@ public func downloadError(_ url: String!, _ errorMessage: String!) {
             psManager?.downloadOrLoadProject(experienceToPlay!.assetURL);
         }
         NSLog("GaneViewController loaded successfully");
-
- 
     }
+    
+  
     
    public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

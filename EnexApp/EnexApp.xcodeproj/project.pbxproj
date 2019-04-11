@@ -12,10 +12,10 @@
 		B7294121225B25CF004B5255 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B729411F225B25CF004B5255 /* Main.storyboard */; };
 		B7294123225B25D0004B5255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7294122225B25D0004B5255 /* Assets.xcassets */; };
 		B7294126225B25D0004B5255 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7294124225B25D0004B5255 /* LaunchScreen.storyboard */; };
+		B74F1012225FA69100B5BC47 /* WA3DLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7AC2DE7225E22C60091CF28 /* WA3DLib.framework */; };
 		B7AC2DE6225E22430091CF28 /* GaneFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B7294134225B2647004B5255 /* GaneFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B7AC2DE8225E22C60091CF28 /* WA3DLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7AC2DE7225E22C60091CF28 /* WA3DLib.framework */; };
-		B7AC2DE9225E230F0091CF28 /* WA3DLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7AC2DE7225E22C60091CF28 /* WA3DLib.framework */; };
 		B7AC2DEA225E230F0091CF28 /* WA3DLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B7AC2DE7225E22C60091CF28 /* WA3DLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B7AC2DF6225F63150091CF28 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AC2DF5225F63150091CF28 /* QRViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +44,7 @@
 		B7294134225B2647004B5255 /* GaneFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GaneFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7717F12225B908A00D3C853 /* module.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
 		B7AC2DE7225E22C60091CF28 /* WA3DLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WA3DLib.framework; sourceTree = "<group>"; };
+		B7AC2DF5225F63150091CF28 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7AC2DE8225E22C60091CF28 /* WA3DLib.framework in Frameworks */,
-				B7AC2DE9225E230F0091CF28 /* WA3DLib.framework in Frameworks */,
+				B74F1012225FA69100B5BC47 /* WA3DLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +85,7 @@
 				B7294122225B25D0004B5255 /* Assets.xcassets */,
 				B7294124225B25D0004B5255 /* LaunchScreen.storyboard */,
 				B7294127225B25D0004B5255 /* Info.plist */,
+				B7AC2DF5225F63150091CF28 /* QRViewController.swift */,
 			);
 			path = EnexApp;
 			sourceTree = "<group>";
@@ -184,6 +185,7 @@
 			files = (
 				B729411E225B25CF004B5255 /* ViewController.swift in Sources */,
 				B729411C225B25CF004B5255 /* AppDelegate.swift in Sources */,
+				B7AC2DF6225F63150091CF28 /* QRViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

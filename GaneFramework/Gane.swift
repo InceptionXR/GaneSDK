@@ -14,7 +14,7 @@ import WA3DLib
 public protocol GaneDelegate : class {
     func onError(_ text: String)
     func onDownloadProgress(_ progress: Float)
-    func onViewReady(_ view: UIViewController)
+    func onViewReady(_ view: GaneViewController)
     //   var view : UIViewController { get set } ;
 }
 
@@ -25,7 +25,12 @@ public class Gane  : NSObject , GaneViewDelegate {
     weak public var ganeDelegate: GaneDelegate?
 
     public func onViewReady(_ view: GaneViewController) {
-        ganeDelegate?.onViewReady(view as UIViewController);
+        DispatchQueue.main.async {
+            
+            self.ganeDelegate?.onViewReady(view);
+            
+        }
+        
     }
     
     public func onError(_ text: String) {
@@ -41,7 +46,7 @@ public class Gane  : NSObject , GaneViewDelegate {
     var arContoller : GaneViewController? = nil
     
     let token: String ;
-    let serverURL = "https://osiris.stage.bookful.inceptionxr.com/v1/experiences/my?";
+    let serverURL = "https://osiris.stage.bookful.inceptionxr.com/v1/sdk/experiences/all";
     
    var experiences:[Experience]?;
 
@@ -51,7 +56,7 @@ public class Gane  : NSObject , GaneViewDelegate {
         super.init()
         }
     
-    public func getExperiences(completionHandler: @escaping (_ experiences: [Experience]?, _ error: Error?) -> Void ) {
+    public func getExperiences(completionHandler: @escaping (_ experiences: UserResponce?, _ error: Error?) -> Void ) {
     
     let url = URL(string: serverURL)!
     var request = URLRequest(url:  url)
@@ -63,9 +68,8 @@ public class Gane  : NSObject , GaneViewDelegate {
             print(error!)
         } else {
             do {
-                
                 let userResponce = try JSONDecoder().decode(UserResponce.self, from:data!)
-                self.experiences = userResponce.experiences;
+                self.experiences = userResponce
                 
                 DispatchQueue.main.async {
                     completionHandler(self.experiences, nil)
@@ -86,10 +90,36 @@ public class Gane  : NSObject , GaneViewDelegate {
         
         
         NSLog("Gane showExperience ");
+
+        if (self.arContoller != nil){
+            
+            self.arContoller?.dismiss(animated:false, completion: {() -> Void in
+                
+                self.afterViewIsDead(experience:experience)
+            }
+            )
+            self.arContoller?.view.removeFromSuperview()
+
+        }else{
+        afterViewIsDead(experience: experience) ;
+        }
+        
+       
+    }
+    
+    
+    
+    func afterViewIsDead(experience: Experience ) {
+        let window = UIApplication.shared.keyWindow!
+
         self.arContoller = GaneViewController();
         self.arContoller!.playExperience( experienceToPlay: experience ,ganeViewDelegate: self)
-        self.arContoller!.loadViewIfNeeded();
-
+        // self.arContoller!.loadViewIfNeeded();
+        //  let v = UIView(frame: window.bounds)
+        window.addSubview(self.arContoller!.view);
+        self.arContoller?.view.frame = window.bounds
+        self.arContoller?.view.alpha = 0
+        self.arContoller?.view.isHidden = true
     }
     
 }

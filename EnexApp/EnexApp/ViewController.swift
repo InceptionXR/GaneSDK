@@ -10,12 +10,7 @@ import UIKit
 import GaneFramework
 import WA3DLib
 
-
-let oldUserToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWRtaW4iLCJ1c2VyX2lkIjoiR3RFSE1telhaIiwiY3JlYXRlZCI6MTU1NDczNTQxMjY0NSwianRpIjoicGs5WFdpZTMwIiwiaWF0IjoxNTU0NzM1NDEyLCJleHAiOjE1NTczMjc0MTIsImlzcyI6Ik9zaXJpcyJ9.aS6QP5MN_vwydgLfv5tJCLhor3QBuXs0WCg31iR4JCw";
-
-let userToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoic2RrX3Rva2VuIiwidXNlcl9pZCI6Ikd0RUhNbXpYWiIsImNyZWF0ZWQiOjE1NTQ4ODk5MzA0OTMsImp0aSI6InZ4XzN6UVJsUSIsImlhdCI6MTU1NDg4OTkzMCwiZXhwIjo3ODY2NDA5OTMwLCJpc3MiOiJPc2lyaXMifQ.2GXMdPFO0ZAZ2ds3imfGOitxvnjZxYKo5-yfGqNDgrs" ;
-
-
+let userToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoic2RrX3Rva2VuIiwidXNlcl9pZCI6Ikd0RUhNbXpYWiIsImNyZWF0ZWQiOjE1NTQ4ODk5MzA0OTMsImp0aSI6InZ4XzN6UVJsUSIsImlhdCI6MTU1NDg4OTkzMCwiZXhwIjo3ODY2NDA5OTMwLCJpc3MiOiJPc2lyaXMifQ.2GXMdPFO0ZAZ2ds3imfGOitxvnjZxYKo5-yfGqNDgrs"
 
 class ViewController: UITableViewController , GaneDelegate {
     
@@ -24,32 +19,21 @@ class ViewController: UITableViewController , GaneDelegate {
 
     func onDownloadProgress(_ progress: Float) {
         print ("Downloading " , progress);
-
     }
-    
     
     func onError(_ text: String) {
         print("onError " , text);
     }
     
-    
-    func onViewReady(_ view: UIViewController) {
-        
-        NSLog("onViewReady");
-        
-       // let controller = storyboard!.instantiateViewController(withIdentifier: NSStringFromClass(view))
-        addChild(view);
-        self.view.addSubview(view.view);
-        view.didMove(toParent: self)
-        
-        self.view.insertSubview(view.view, at: 100)
+    func onViewReady(_ view: GaneViewController) {
+        view.view.alpha = 1
+        view.view.isHidden = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        self.gane = Gane(token: oldUserToken , ganeDelegate: self);
-    
+        self.gane = Gane(token: userToken , ganeDelegate: self);
         self.gane?.getExperiences() { experiences, error in // this shit is async
             
             for ex in experiences!
@@ -60,16 +44,7 @@ class ViewController: UITableViewController , GaneDelegate {
             self.experiences = experiences!
             self.tableView.delegate = self;
             self.tableView.reloadData();
-          //  self.gane?.showExperience (experience: self.experiences[0] ,delegate : self)
-            
-        //    let psManager = WAPublishServerManager.instance() as! WAPublishServerManager;
-         //   psManager.setDelegate(self); // so that all download functions will be called
-         //   psManager.downloadOrLoadProject(experiences![0].assetURL);
         }
-    }
-    
-    func switchToExperience() {
-        
     }
     
     // MARK: - Table view data source
@@ -95,7 +70,4 @@ class ViewController: UITableViewController , GaneDelegate {
         return indexPath;
 
     }
-    
-    
-   
 }

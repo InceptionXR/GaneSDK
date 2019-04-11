@@ -1,17 +1,10 @@
+// To parse the JSON, add this file to your project and do:
 //
-//  GaneExperince.swift
-//  EnexApp
-//
-//  Created by John MAClovich on 07/04/2019.
-//  Copyright © 2019 Inception. All rights reserved.
-//
+//   let userResponce = try? newJSONDecoder().decode(UserResponce.self, from: jsonData)
 
 import Foundation
 
-struct UserResponce: Codable {
-    let meta: [String:String]
-    let experiences: [Experience]
-}
+public typealias UserResponce = [Experience]
 
 public struct Experience: Codable {
     public let description: String
@@ -40,16 +33,22 @@ public struct Experience: Codable {
 }
 
 public struct Price: Codable {
-   public let amount: Int
-    public let currency: String
+    let amount: Int
+    let currency: Currency
 }
+
+public enum Currency: String, Codable {
+    case eur = "eur"
+    case gbp = "gbp"
+    case usd = "usd"
+}
+
 public struct Request: Codable {
     let requestPublic, approved: Bool
     let editDate: JSONNull?
     let type, message: String
     let relatedTo: RelatedTo
     let initiatorID, id, createdAt, updatedAt: String
-    let comments: [Comment]
     
     enum CodingKeys: String, CodingKey {
         case requestPublic = "public"
@@ -61,27 +60,6 @@ public struct Request: Codable {
         case id
         case createdAt = "created_at"
         case updatedAt = "updated_at"
-        case comments
-    }
-}
-
-public struct Comment: Codable {
-    let editDate: JSONNull?
-    let isRead: Bool
-    let message, requestID, userID, id: String
-    let createdAt, updatedAt: String
-    let user: JSONNull?
-    
-    enum CodingKeys: String, CodingKey {
-        case editDate = "edit_date"
-        case isRead = "is_read"
-        case message
-        case requestID = "request_id"
-        case userID = "user_id"
-        case id
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-        case user
     }
 }
 
@@ -93,6 +71,8 @@ public struct RelatedTo: Codable {
         case ownerID = "owner_id"
     }
 }
+
+// MARK: Encode/decode helpers
 
 public class JSONNull: Codable, Hashable {
     
@@ -118,4 +98,3 @@ public class JSONNull: Codable, Hashable {
         try container.encodeNil()
     }
 }
-

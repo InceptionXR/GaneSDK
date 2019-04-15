@@ -17,7 +17,7 @@ public struct Experience: Codable {
     public let published: Bool
     public let assetURL: String?
     public let price: Price?
-    public let requests: [Request]
+    public let requests: [Request]?
     public let limitations: JSONNull?
     
     enum CodingKeys: String, CodingKey {

@@ -14,7 +14,7 @@ import WA3DLib
 public protocol GaneDelegate : class {
     func onError(_ text: String)
     func onDownloadProgress(_ progress: Float)
-    func onViewReady(_ view: GaneViewController)
+    func onViewReady(_ ganeController: GaneViewController)
     //   var view : UIViewController { get set } ;
 }
 
@@ -24,13 +24,9 @@ public class Gane  : NSObject , GaneViewDelegate {
     
     weak public var ganeDelegate: GaneDelegate?
 
-    public func onViewReady(_ view: GaneViewController) {
-        DispatchQueue.main.async {
-            
-            self.ganeDelegate?.onViewReady(view);
-            
-        }
-        
+    public func onViewReady(_ ganeController: GaneViewController) {
+        NSLog("Gane onViewReady ");
+      self.ganeDelegate?.onViewReady(ganeController);
     }
     
     public func onError(_ text: String) {
@@ -88,40 +84,14 @@ public class Gane  : NSObject , GaneViewDelegate {
     
     public func showExperience(experience: Experience , delegate: GaneDelegate){
         
-        
-        NSLog("Gane showExperience ");
-
-        if (self.arContoller != nil){
-            
-            self.arContoller?.dismiss(animated:false, completion: {() -> Void in
-                
-                self.afterViewIsDead(experience:experience)
-            }
-            )
-            self.arContoller?.view.removeFromSuperview()
-
-        }else{
-        afterViewIsDead(experience: experience) ;
+        if (arContoller == nil){
+            NSLog("Gane creating new gane controller");
+            arContoller = GaneViewController();
         }
-        
-       
-    }
-    
-    
-    
-    func afterViewIsDead(experience: Experience ) {
-        let window = UIApplication.shared.keyWindow!
+        arContoller!.playExperience( experienceToPlay: experience ,ganeViewDelegate: self)
+        _ = arContoller!.view;
 
-        self.arContoller = GaneViewController();
-        self.arContoller!.playExperience( experienceToPlay: experience ,ganeViewDelegate: self)
-        // self.arContoller!.loadViewIfNeeded();
-        //  let v = UIView(frame: window.bounds)
-        window.addSubview(self.arContoller!.view);
-        self.arContoller?.view.frame = window.bounds
-        self.arContoller?.view.alpha = 0
-        self.arContoller?.view.isHidden = true
     }
-    
 }
 
 

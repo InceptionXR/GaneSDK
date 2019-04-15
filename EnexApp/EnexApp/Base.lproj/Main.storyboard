@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bds-We-pUX">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="beG-zK-D4g">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -13,9 +13,9 @@
         <!--View Controller-->
         <scene sceneID="gmZ-aW-XKI">
             <objects>
-                <viewController id="9kV-D2-54S" customClass="QRViewController" customModule="EnexApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9kV-D2-54S" customClass="QRViewController" customModule="GaneExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V7b-pZ-N26">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Axw-Du-Aqk"/>
@@ -23,22 +23,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Noc-cp-hDB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-127" y="-107"/>
+            <point key="canvasLocation" x="-1033" y="-232"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="dMI-IK-uFK">
             <objects>
-                <tableViewController id="bds-We-pUX" customClass="ViewController" customModule="EnexApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="bds-We-pUX" customClass="ViewController" customModule="GaneExample" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8W9-jm-lV7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" id="Ioa-2M-VeO">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ioa-2M-VeO" id="XTh-IG-hbf">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -51,7 +51,45 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iNi-x8-Cg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="840" y="131"/>
+            <point key="canvasLocation" x="-260" y="-222"/>
+        </scene>
+        <!--FakeCNN View Contoller-->
+        <scene sceneID="gqD-Ed-ILo">
+            <objects>
+                <viewController id="beG-zK-D4g" customClass="FakeCNNViewContoller" customModule="GaneExample" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1lP-5u-5BA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_0678.PNG" translatesAutoresizingMaskIntoConstraints="NO" id="X2o-ZB-Y1P">
+                                <rect key="frame" x="0.0" y="-37" width="431" height="933"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKc-j5-wGB" userLabel="ButtonTop">
+                                <rect key="frame" x="0.0" y="112" width="416" height="277"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="btnTopTapped:" destination="beG-zK-D4g" eventType="touchUpInside" id="Vyu-SO-vHe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6u-oj-yrY" userLabel="ButtonBottom">
+                                <rect key="frame" x="0.0" y="384" width="414" height="283"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="btnBottomTapped:" destination="beG-zK-D4g" eventType="touchUpInside" id="K0r-Gx-GTV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Rf6-NU-DMY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oHE-aR-eYs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1039.1304347826087" y="-346.20535714285711"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="IMG_0678.PNG" width="1125" height="2436"/>
+    </resources>
 </document>

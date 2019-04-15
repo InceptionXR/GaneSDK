@@ -22,17 +22,18 @@ public class GaneViewController: ARViewController, WADownloadDelegate, WAEngineD
     weak public var ganeViewDelegate: GaneViewDelegate?
     var psManager : WAPublishServerManager? = nil;
     var experienceToPlay: Experience?;
-    
+    let backBtn = UIButton();
+
     public func playExperience ( experienceToPlay: Experience ,ganeViewDelegate: GaneViewDelegate)
     {
         self.ganeViewDelegate = ganeViewDelegate;
-
         self.experienceToPlay = experienceToPlay;
-        
         NSLog("GaneViewController playExperience");
-
+        if (isViewLoaded){
+                NSLog("GaneViewController  downloadOrLoadProject");
+                psManager?.downloadOrLoadProject(experienceToPlay.assetURL);
+        }
     }
-    
     
   public  func downloadStarted(_ url: String!) {
         NSLog("Download Started");
@@ -43,16 +44,16 @@ public class GaneViewController: ARViewController, WADownloadDelegate, WAEngineD
         NSLog("Download Progress: %f", progress);
     }
     
-  public  func downloadComplete(_ url: String!, _ localPath: String!, _ fromCache: Bool) {
+    public  func downloadComplete(_ url: String!, _ localPath: String!, _ fromCache: Bool) {
         NSLog("Download Completed");
         loadProject(localPath);
     }
     
-public func downloadError(_ url: String!, _ errorMessage: String!) {
+    public func downloadError(_ url: String!, _ errorMessage: String!) {
         NSLog("Error for url: %@ message: %@", url, errorMessage);
     }
     
-  public  func searchComplete(_ results: [Any]!) {
+    public  func searchComplete(_ results: [Any]!) {
         
     }
     
@@ -70,7 +71,7 @@ public func downloadError(_ url: String!, _ errorMessage: String!) {
         }
     }
     
-    public override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.setDelegate(self); // so that OnProjectLoaded/OnSceneLoaded will be called
@@ -78,20 +79,28 @@ public func downloadError(_ url: String!, _ errorMessage: String!) {
         self.psManager?.setDelegate(self); // so that all download functions will be called
         
         if (experienceToPlay != nil){
+            NSLog("GaneViewController loaded experienceToPlay");
             psManager?.downloadOrLoadProject(experienceToPlay!.assetURL);
         }
         NSLog("GaneViewController loaded successfully");
     }
-    
-  
-    
+    override public func viewDidAppear(_ animated: Bool){
+        // add back button that gets removed all the time
+        backBtn.frame = CGRect(x: self.view.bounds.size.width - 160, y: 10, width: 150, height: 50)
+        backBtn.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+        backBtn.setTitle("Back", for: .normal)
+        backBtn.addTarget(self, action: #selector(backBtnAction), for: .touchUpInside)
+        view.addSubview(backBtn)
+    }
+    @objc func backBtnAction(sender: UIButton!) {
+        print("Back Btn tapped")
+        dismiss(animated: false, completion: nil)
+        unloadCurrentProject();
+    }
    public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-  
-    
-    
     
 }
 

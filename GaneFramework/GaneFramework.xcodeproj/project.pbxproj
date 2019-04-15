@@ -11,7 +11,6 @@
 		B768A977225B24CA00C58EE0 /* GaneExperince.swift in Sources */ = {isa = PBXBuildFile; fileRef = B768A972225B24CA00C58EE0 /* GaneExperince.swift */; };
 		B7AC2DE4225E21E40091CF28 /* WA3DLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7AC2DE3225E21E40091CF28 /* WA3DLib.framework */; };
 		B7AC2DE5225E22080091CF28 /* WA3DLib.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = B7AC2DE3225E21E40091CF28 /* WA3DLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B7AC2DEC225E2A870091CF28 /* GaneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AC2DEB225E2A870091CF28 /* GaneDelegate.swift */; };
 		B7AC2DF4225F2D890091CF28 /* GaneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AC2DF3225F2D890091CF28 /* GaneViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +33,6 @@
 		B768A972225B24CA00C58EE0 /* GaneExperince.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GaneExperince.swift; sourceTree = "<group>"; };
 		B7AC2DE2225E202A0091CF28 /* module.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
 		B7AC2DE3225E21E40091CF28 /* WA3DLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WA3DLib.framework; sourceTree = "<group>"; };
-		B7AC2DEB225E2A870091CF28 /* GaneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaneDelegate.swift; sourceTree = "<group>"; };
 		B7AC2DF3225F2D890091CF28 /* GaneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaneViewController.swift; sourceTree = "<group>"; };
 		B7CBBE59225A398600E5755D /* GaneFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GaneFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7CBBE5C225A398600E5755D /* GaneFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GaneFramework.h; sourceTree = "<group>"; };
@@ -66,7 +64,6 @@
 			isa = PBXGroup;
 			children = (
 				B7AC2DF3225F2D890091CF28 /* GaneViewController.swift */,
-				B7AC2DEB225E2A870091CF28 /* GaneDelegate.swift */,
 				B768A971225B24CA00C58EE0 /* Gane.swift */,
 				B768A972225B24CA00C58EE0 /* GaneExperince.swift */,
 				B7CBBE5B225A398600E5755D /* GaneFramework */,
@@ -173,7 +170,6 @@
 			files = (
 				B768A976225B24CA00C58EE0 /* Gane.swift in Sources */,
 				B7AC2DF4225F2D890091CF28 /* GaneViewController.swift in Sources */,
-				B7AC2DEC225E2A870091CF28 /* GaneDelegate.swift in Sources */,
 				B768A977225B24CA00C58EE0 /* GaneExperince.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

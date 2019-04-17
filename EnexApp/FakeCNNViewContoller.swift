@@ -6,11 +6,8 @@
 //
 //  Created by John MAClovich on 15/04/2019.
 //  Copyright © 2019 Inception. All rights reserved.
-import Foundation
 import UIKit
 import GaneFramework
-import WA3DLib
-
 
 class FakeCNNViewContoller: UIViewController , GaneDelegate {
     

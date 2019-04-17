@@ -8,7 +8,6 @@
 
 import UIKit
 import GaneFramework
-import WA3DLib
 
 let userToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoic2RrX3Rva2VuIiwidXNlcl9pZCI6Il9qVHFST3E2QiIsImNyZWF0ZWQiOjE1NTQ5OTgyODY5NjEsImp0aSI6IjdzaUd2LTBVYyIsImlhdCI6MTU1NDk5ODI4NiwiZXhwIjo3ODY2NTE4Mjg2LCJpc3MiOiJPc2lyaXMifQ.7sISp6H9zDRz2cZSerpL126f_hSRBKQS8UuK1fPitys"
 
